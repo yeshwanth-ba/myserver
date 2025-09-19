@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeshwanth Balaji- Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: blue;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: green;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #55555;
+        }
+
+        section {
+            padding: 20px;
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
+        }
+
+        form input, form textarea {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        form button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Yeshwanth Balaji - Portfolio</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showSection('about')">About Me</a>
+    <a href="#" onclick="showSection('skills')">Skills</a>
+    <a href="#" onclick="showSection('projects')">Projects</a>
+    <a href="#" onclick="showSection('contact')">Contact Me</a>
+</nav>
+
+<section id="about" class="active">
+    <h2>About Me</h2>
+    <p>Hello! I'm <strong>Yeshwanth Balaji</strong>, a developer passionate about programming and problem solving.</p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>C++</li>
+        <li>HTML</li>
+        <li>Python</li>
+    </ul>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <p>I have created a simple calculator project.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="submitForm(event)">
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" required>
+        
+        <label for="comments">Your Comments:</label>
+        <textarea id="comments" rows="5" required></textarea>
+        
+        <button type="submit">Send</button>
+    </form>
+    <p id="form-message" style="color: green;"></p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Vishal</p>
+</footer>
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(function(sec) {
+            sec.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const comments = document.getElementById('comments').value;
+        document.getElementById('form-message').innerText = "Thank you for your message!";
+        document.getElementById('email').value = '';
+        document.getElementById('comments').value = '';
+    }
+</script>
+
+</body>
+</html>
